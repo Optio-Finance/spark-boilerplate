@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.rainbow {
+  @apply block w-full h-[4px];
+  background: linear-gradient(124deg, #ffd600, #e00064, #00c2ff);
+}
+
+.searchbar {
+  @apply block w-full h-16 pl-16 pr-12 rounded-full focus:outline-none focus:shadow-none focus:ring-0;
+}

@@ -1,0 +1,16 @@
+query GetCurrentUser {
+  currentUser {
+    id
+    createdAt
+    updatedAt
+    email
+    name
+    imageUrl
+    projects {
+      id
+      slug
+      name
+      content
+    }
+  }
+}

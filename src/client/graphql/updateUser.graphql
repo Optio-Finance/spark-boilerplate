@@ -1,0 +1,12 @@
+mutation UpdateUser($name: String) {
+  updateUser(name: $name) {
+    id
+    name
+    email
+    projects {
+      id
+      name
+      slug
+    }
+  }
+}

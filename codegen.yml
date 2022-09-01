@@ -1,0 +1,17 @@
+overwrite: true
+schema: src/server/graphql/build-schema.js
+documents: "src/client/graphql/*.graphql"
+generates:
+  # This will take your schema and print an SDL schema.
+  src/server/graphql/schema.graphql:
+    plugins:
+      - schema-ast
+  # This will contain the generated urql hooks and schema types needed to make type-safe queries
+  src/client/graphql/types.generated.ts:
+    config:
+      scalars:
+        DateTime: string
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-urql
