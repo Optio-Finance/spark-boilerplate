@@ -8,12 +8,13 @@ import ActionListComponent from "@client/components/Homepage/ActionList";
 import { classNames } from "@client/utils";
 import { Icon } from "@spark/connectors/icons";
 import { useContract } from "@spark/contracts";
-import { useStarknet } from "@spark/starknet";
+import { useConnectors, useStarknet } from "@spark/starknet";
 import toast from "react-hot-toast";
 import { Call } from "starknet";
 
 const Homepage: FunctionComponent<LayoutProps> = () => {
-  const { account, connectors, wallet } = useStarknet();
+  const { account, connect, connectors, wallet } = useStarknet();
+  const { available } = useConnectors();
   const { erc1155Contract } = useContract();
   const [success, setDone] = useState(false);
 
@@ -96,6 +97,7 @@ const Homepage: FunctionComponent<LayoutProps> = () => {
                 "px-3 py-1.5 rounded-md hover:bg-slate-600 text-slate-300",
                 "text-sm"
               )}
+              onClick={() => available.length && connect(available[0])}
             >
               Connect
             </button>
