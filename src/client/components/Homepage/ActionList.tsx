@@ -9,17 +9,15 @@ import { NumWrap } from "./NumWrap";
 
 export default function ActionList({ success }: { success: boolean }) {
   return (
-    <>
-      <div className="px-6 py-5 flex flex-col gap-y-3 text-sm font-light cursor-[default]">
-        {actions.map((e, i: number) => (
-          <div key={i} className="w-full flex items-center gap-x-2.5">
-            {e.icon}
-            <span className="flex-1">{e.content}</span>
-            {success && <CheckIcon className="w-5 text-emerald-500" />}
-          </div>
-        ))}
-      </div>
-    </>
+    <div className="px-6 py-5 flex flex-col gap-y-3 text-sm font-light cursor-[default]">
+      {actions.map((e, i: number) => (
+        <div key={i} className="w-full flex items-center gap-x-2.5">
+          {e.icon}
+          <span className="flex-1">{e.content}</span>
+          {success && <CheckIcon className="w-5 text-emerald-500" />}
+        </div>
+      ))}
+    </div>
   );
 }
 
