@@ -80,7 +80,7 @@ export function useStarknetManager({
   const { account, library, error, wallet } = state;
 
   const connect = useCallback((connector: Connector) => {
-    connector.connect().then(
+    connector?.connect().then(
       (account) => {
         dispatch({
           type: "set_account",
