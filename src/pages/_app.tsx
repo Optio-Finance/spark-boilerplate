@@ -1,5 +1,6 @@
 import { client } from "@client/graphql/client";
 import { AppContextWrapper } from "@client/state/global";
+import { MantineProvider } from "@mantine/core";
 import { SparkProvider } from "@spark/provider";
 import { ThemeProvider } from "next-themes";
 import Head from "next/head";
@@ -31,10 +32,18 @@ function CustomApp({ Component, pageProps }: AppLayoutProps) {
             />
           </Head>
           <AppContextWrapper>
-            <Layout>
-              <Component {...pageProps} />
-              <Toaster />
-            </Layout>
+            <MantineProvider
+              withGlobalStyles
+              withNormalizeCSS
+              theme={{
+                colorScheme: "dark",
+              }}
+            >
+              <Layout>
+                <Component {...pageProps} />
+                <Toaster />
+              </Layout>
+            </MantineProvider>
           </AppContextWrapper>
         </UrqlProvider>
       </ThemeProvider>
