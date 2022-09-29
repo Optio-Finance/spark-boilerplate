@@ -33,7 +33,6 @@ function CustomApp({ Component, pageProps }: AppLayoutProps) {
           </Head>
           <AppContextWrapper>
             <MantineProvider
-              withGlobalStyles
               withNormalizeCSS
               theme={{
                 colorScheme: "dark",
